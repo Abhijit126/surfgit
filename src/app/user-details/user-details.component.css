@@ -1,0 +1,132 @@
+.parent {
+    margin: 2.5em;
+}
+
+.imagecont {
+    display: inline-block;
+    border-radius: 100px;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    box-sizing: border-box;
+    outline: 1px solid grey;
+    outline-offset: 2px;
+}
+img {
+    width: 100%;
+    height: 100%;
+}
+.content {
+    display: inline-block;
+}
+.userdetailcontainer {
+    position: relative;
+}
+.content {
+    position: absolute;
+    top: 0;
+    margin-left: 20px;
+}
+
+.repositories {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+.pages {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.repo {
+    margin-top: 8px;
+    display: inline-block;
+    padding: 8px;
+    border: 1px solid black;  
+    height: 150px; 
+    width: 40%;
+}
+.repo h2 {
+    color: #5DA3EA;
+}
+.err {
+    font-size: 20px;
+    color: crimson;
+}
+.err label {
+    display: inline-block;
+}
+.languages {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #5DA3EA;
+    color: white;
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+.pages button.previous {
+    border: none;
+    margin: 0;
+    color: #5DA3EA;
+    background: none;
+    width: 30px;
+    height: 27px;
+    outline: none;
+    border: 1px solid grey;
+    cursor: pointer;
+    overflow: hidden;
+}
+.pages button.next {
+    border: none;
+    color: #5DA3EA;
+    background: none;
+    margin: 0;
+    width: 30px;
+    height: 27px;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    border-right: 1px solid grey;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+.pageNum {
+    color: #5DA3EA;
+    width: 30px;
+    height: 25px;
+    text-align: center;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    border-right: 1px solid grey;
+    cursor: pointer;
+}
+.active {
+    color: white;
+    background-color: #5DA3EA;
+}
+.website {
+    position: relative;
+}
+button{
+    box-shadow: none;
+}
+.website .webD {
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+}
+.userDataSkeleton span {
+    display: inline-block;
+}
+.previous mat-icon, .next mat-icon {
+    font-size: 20px;
+}

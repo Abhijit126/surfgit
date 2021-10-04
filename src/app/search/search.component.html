@@ -1,0 +1,22 @@
+<div class="parent">
+    <div class="numOfRepos">
+        <label class="repoLabel" for="repos">Repos/Page:</label>
+        <input type="number" name="" id="repos" min="10" max="100" value="10" #numrepos>
+    </div>
+    <div class="searchbar">
+        <div class="logo">
+            <label class="logoLabel" for="">SurfGit</label>
+        </div>
+        <div class="footer">
+            <div class="iconcontainer">
+                <mat-icon>search</mat-icon>
+            </div>
+
+            <div class="textfieldcontainer">
+                <input class="username" type="text" name="" id="" #username
+                placeholder="Enter username" (keypress)="onSubmit($event)">
+            </div>
+        </div>
+        <p *ngIf="error">{{error}}</p>
+    </div>
+</div>

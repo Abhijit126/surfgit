@@ -1,0 +1,71 @@
+<div class="parent">
+<div *ngIf="userName && userData">
+    <div class="userdetailcontainer">
+        <span class="imagecont"><img src="{{userData.imageUrl}}" alt=""></span>
+        <span class="content">
+            <h2 class="name">{{userData.name}}</h2>
+            <p class="bio">{{userData.bio}}</p>
+            <p class="location"><span *ngIf="userData.location"><mat-icon>room</mat-icon></span>{{userData.location}}</p>
+            <p class="twitter">Twitter: https://twitter.com/{{userData.twitterUserName}}</p>
+        </span>
+
+        <div class="website"><span><mat-icon>insert_link</mat-icon></span><span class="webD">{{userData.githubUrl}}</span></div>
+    </div>
+    <div class="userreposcontainer">
+
+    </div>
+</div>
+<div *ngIf="!userData && !error" class="userDataSkeleton">
+    <ngx-skeleton-loader appearance="circle" [theme]="{ height: '200px',width: '200px',display : 'inline-block'}"></ngx-skeleton-loader>
+    <span>
+    <ngx-skeleton-loader [theme]="{ height: '100px',width: '300px'}"></ngx-skeleton-loader>
+    <ngx-skeleton-loader [theme]="{ height: '30px',width: '300px',display:'block'}"></ngx-skeleton-loader>
+    <ngx-skeleton-loader [theme]="{ height: '30px',width: '300px',display:'block'}"></ngx-skeleton-loader>
+    </span>
+    <ngx-skeleton-loader [theme]="{ height: '30px',width: '300px',display:'block'}"></ngx-skeleton-loader>
+</div>
+<div *ngIf="error" class="err">
+    <label for="">{{error}}</label>
+</div>
+<div *ngIf="userRepos">
+    <div class="repositories">
+        <div class="repo" *ngFor="let repoData of userRepos">
+            <h2>{{repoData.name}}</h2>
+            <p>{{repoData.description}}</p>
+            <div>
+                <span class="languages" 
+                *ngFor="let language of repoData.languagesUsed">{{language}}</span>
+            </div>
+        </div>
+    </div>
+    <div>
+
+    
+        <div class="pages" *ngIf="userRepos">
+            <button [ngClass]="{disabled:pageData.pager.currentPage === 1}"
+                [disabled]="pageData.pager.currentPage == 1"
+                 class="previous" (click)="setPage(pageData.pager.currentPage - 1)">
+                <mat-icon>arrow_back_ios</mat-icon>
+            </button>
+
+            <div *ngFor="let page of pageData.pager.pages" [ngClass]="{active:pageData.pager.currentPage === page}" class="pageNum">
+                <a (click)="setPage(page)" class="page-link">{{page}}</a>
+            </div>
+
+            <button [ngClass]="{disabled:pageData.pager.currentPage == pageData.pager.totalPages}" 
+                [disabled]="pageData.pager.currentPage == pageData.pager.totalPages" 
+                class="next" (click)="setPage(pageData.pager.currentPage + 1)">
+                <mat-icon>arrow_forward_ios</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="listSkeleton" *ngIf="!userRepos && !error" [style]="{marginTop:'100px'}">
+    <ngx-skeleton-loader [theme]="{ height: '30px',width: '800px',display:'block'}"></ngx-skeleton-loader>
+    <ngx-skeleton-loader [theme]="{ height: '30px',width: '750px',display:'block'}"></ngx-skeleton-loader>
+    <ngx-skeleton-loader [theme]="{ height: '30px',width: '900px',display:'block'}"></ngx-skeleton-loader>
+    <ngx-skeleton-loader [theme]="{ height: '30px',width: '680px',display:'block'}"></ngx-skeleton-loader>
+    <ngx-skeleton-loader [theme]="{ height: '30px',width: '790px',display:'block'}"></ngx-skeleton-loader>
+</div>
+</div>
